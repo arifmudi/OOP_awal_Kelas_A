@@ -32,10 +32,10 @@ class Mahasiswa {
   }
 }
 
-$cindy = new Mahasiswa();
+$nisa = new Mahasiswa();
 $nim = new Mahasiswa();
 $matkul = new Mahasiswa();
-$cindy->set_name('Khairunnisa');
+$nisa->set_name('Khairunnisa');
 $nim->set_name('2255201004');
 $matkul->set_name('pbo');
 
