@@ -1,47 +1,55 @@
 <?php
-class mahasiswa
-{
-    // Properties
-    private $name;
-    private $nim;
-    private $matkul;
-    private $citacita;
-    // Methods
-    function __construct($name, $nim, $matkul, $citacita)
-    {
-        $this->name = $name;
-        $this->nim = $nim;
-        $this->matkul = $matkul;
-        $this->citacita = $citacita;
-    }
-    function get_name()
-    {
-        return $this->name;
-    }
-    
-    function get_nim()
-    {
-        return $this->nim;
-    }
-    
-    function get_matkul()
-    {
-        return $this->matkul;
-    }
-    function get_citacita()
-    {
-        return $this->citacita;
+class Mahasiswa {
+  // Properties
+  private $name;
+  private $nim;
+  private $matkul;
+  private $citacita;
+  // Methods
+  function __construct($name, $nim, $matkul, $citacita)
+  {
+      $this->name = $name;
+      $this->nim = $nim;
+      $this->matkul = $matkul;
+      $this->citacita = $citacita;
+  }
+   function get_name() {
+    return $this->name;
+  }
+
+  function get_nim() {
+    return $this->nim;
+  }
+    protected function get_matkul() {
+    return $this->matkul;
+  }
+  
+  protected function get_citacita()
+  {
+      return $this->citacita;
+  }
+  function __destruct() {
+    echo "<br> ini akhir dari class mahasiswa {$this->name}.";
+  }
+}
+//class turunan organisasi
+class organisasi extends mahasiswa {
+      function hima() {
+          echo "Name: " . $this->get_name();
+          echo "<br>";
+          echo "Nim: " . $this->get_Nim();
+          echo "<br>";
+          echo "Matkul: " . $this->get_Matkul();
+          echo "<br>";
+          echo "citacita: " . $this->get_citacita();
+          echo "<br>";
+          echo "Organisasi:Hima";
     }
 }
-
-$rian = new mahasiswa('rian eka putra', '2255201043', 'PBO', 'menjadi proplayer');
-
-echo "Name: " . $rian->get_name();
-echo "\n";
-echo "nim: " . $rian->get_nim();
-echo "\n";
-echo "matkul: " . $rian->get_matkul();
-echo "\n";
-echo "citacita: " . $rian->get_citacita();
+$rian = new organisasi('Rian Eka Putra', '2255201043', 'PBO', 'Proplayer');
+$rian->hima();
 ?>
+
+
+
  
