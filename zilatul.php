@@ -25,19 +25,21 @@ class mahasiswa
         return $this->nim;
     }
 
-    function get_matkul()
+    protected function get_matkul()
     {
         return $this->matkul;
     }
-    function get_citacita()
+    protected function get_citacita()
     {
         return $this->citacita;
-    }
+    } 
+     function __destruct() {
+    echo "<br> ini akhir dari class mahasiswa {$this->name}.";
+  }
 }
-
-
-$zilla = new mahasiswa('zilla', '2255201048', 'PBO', 'menjadi istri boboiboy');
-
+//class turunan organisasi
+class organisasi extends mahasiswa {
+      function hima() {
 echo "Name: " . $zilla->get_name();
 echo "\n";
 echo "nim: " . $zilla->get_nim();
@@ -45,3 +47,13 @@ echo "\n";
 echo "matkul: " . $zilla->get_matkul();
 echo "\n";
 echo "citacita: " . $zilla->get_citacita();
+echo "\n";       
+echo "Organisasi : HIMA"; 
+      }
+}
+$zilla = new mahasiswa('zilla tulhusna', '2255201048', 'PBO', 'menjadi istri boboiboy');
+$zilla->hima();
+
+?>
+
+
