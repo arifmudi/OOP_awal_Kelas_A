@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html>
 <body>
-
 <?php
-class mahasiswa {
+class Mahasiswa {
   // Properties
   private $name;
   private $nim;
   private $matkul;
-  private $citacita;
-
+  private $cita_cita;
+  
   // Methods
-  function __construct($name, $nim ,$matkul ,$citacita) 
-  {
+  function __construct($name, $nim, $matkul, $cita_cita) {
     $this->name = $name;
     $this->nim = $nim;
-    $this->matkul = $matkul;
-    $this->citacita = $citacita;
+    $this->matkul = $mmatkul;
+    $this->cita_cita = $cita_cita;
   }
-
-  function get_name() 
-  {
+  
+  function get_name() {
     return $this->name;
   }
-
   function get_nim() {
     return $this->nim;
   }
-
-  function get_matkul () {
-  	return $this->matkul;
-  }
-  function get_citacita () {
-  	return $this->citacita;
+  
+  protected function get_matkul() {
+    return $this->matkul;
   }
 
+  protected function get_cita_cita() {
+    return $this->cita_cita;
+  }
+
+  function __destruct() {
+    echo "<br>ini akhir dari class mahasiswa {$this->name}";
+  }
 }
 
-$riski = new mahasiswa('riski','2255201046','PBO','menjadi presiden');
-echo "name: " . $riski->get_name();
-echo "<br>";
-echo "nim: " .  $riski->get_nim();
-echo "<br>";
-echo "matkul: " . $riski->get_matkul();
-echo "<br>";
-echo "cita cita: " . $riski->get_citacita();
+class Organisasi extends Mahasiswa {
+  public function name_organisasi() {
+    echo $this->get_name();
+    echo "<br>";
+    echo $this->get_nim();
+    echo "<br>";
+    echo $this->get_matkul();
+    echo "<br>";
+    echo $this->get_cita_cita();
+    echo "<br>";
+    echo "Gardu";
+    
+  }
+}
+
+$organisasi = new Organisasi('Riski Aulia Risda', '2255201046', 'pbo', 'Pengusaha');
+$organisasi->name_organisasi();
 ?>
- 
+
+
 </body>
 </html>
