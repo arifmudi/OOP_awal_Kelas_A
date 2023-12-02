@@ -26,21 +26,35 @@ class mahasiswa
         return $this->nim;
     }
 
-    function get_mkul()
+    protected function get_mkul()
     {
         return $this->mkul;
     }
-    function get_citacita()
+    protected function get_citacita()
     {
         return $this->citacita;
     }
+     function __destruct()
+    {
+        echo "\n ini akhir dari class mahasiswa {$this->name}.";
+    }
 }
+class organisasi extends mahasiswa
+{
+    function hima()
+    {
+        echo "Name: " . $this->get_name();
+        echo "\n";
+        echo "Nim: " . $this->get_nim();
+        echo "\n";
+        echo "Matkul: " . $this->get_mkul();
+        echo "\n";
+        echo "Cita-cita: " . $this->get_citacita();
+        echo "\n";
+        echo "Organisasi : Hima";
 
-$yuda = new mahasiswa('yuda','2255201039','PBO','menjadi power ranger hijau');
-echo "Name: " . $yuda->get_name();
-echo "\n";
-echo "nim: " . $yuda->get_nim();
-echo "\n";
-echo "mkul: " . $yuda->get_mkul();
-echo "\n";
-echo "citacita: " . $yuda->get_citacita();
+    }
+}    
+
+$yuda = new organisasi('yuda', '2255201039', 'PBO', 'menjadi power ranger hijau');
+$yuda->Hima();
