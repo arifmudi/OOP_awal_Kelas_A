@@ -35,6 +35,26 @@ class mahasiswa {
 
 //class turunan organisasi
 class organisasi extends mahasiswa {
+  // properties
+    protected $organisasi;
+    protected $tahun;
+
+    // methods
+    function __construct($name, $nim, $mata_kuliah, $citacita, $organisasi, $tahun)
+    {
+        parent::__construct($name, $nim, $mata_kuliah, $citacita);
+        $this->organisasi = $organisasi;
+        $this->tahun = $tahun;
+    }
+    
+    protected function get_organisasi()
+    {
+        return $this->organisasi;
+    }
+    protected function get_tahun()
+    {
+        return $this->tahun;
+    }
       function hima() {
           echo "Name: " . $this->get_name();
           echo "<br>";
@@ -44,12 +64,14 @@ class organisasi extends mahasiswa {
           echo "<br>";
           echo "Cita-Cita: " . $this->get_citacita();
           echo "<br>";
-          echo "Organisasi : HIMA"; 
+          echo "Nama organisasi: " . $this->get_organisasi();
+          echo "<br>";
+          echo "Tahun gabung: " . $this->get_tahun();
     }
  
 }
 
-$alhashir = new organisasi('alhashir', '2255201024', 'pbo', 'menjadi boboiboy');
+$alhashir = new organisasi('alhashir', '2255201024', 'pbo', 'menjadi boboiboy','hima',2050);
 $alhashir->hima();
 ?>
 
