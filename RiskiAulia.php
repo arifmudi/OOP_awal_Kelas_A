@@ -13,7 +13,7 @@ class Mahasiswa {
   function __construct($name, $nim, $matkul, $cita_cita) {
     $this->name = $name;
     $this->nim = $nim;
-    $this->matkul = $matkul;
+    $this->matkul = $mmatkul;
     $this->cita_cita = $cita_cita;
   }
   
@@ -52,9 +52,10 @@ class Organisasi extends Mahasiswa {
   }
 }
 
-$organisasi = new Organisasi('Aljur Zaki Ahkaf', '2255201011', 'PBO', 'Pengusaha');
+$organisasi = new Organisasi('Riski Aulia Risda', '2255201046', 'pbo', 'Pengusaha');
 $organisasi->name_organisasi();
 ?>
+
 
 </body>
 </html>

@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-
-
 <?php
 class Mahasiswa {
   // Properties
@@ -31,25 +25,58 @@ class Mahasiswa {
     return $this->nim;
   }
   
-  function get_matkul() {
+  protected function get_matkul() {
     return $this->matkul;
   }
-  function get_cita_cita() {
+  protected function get_cita_cita() {
     return $this->cita_cita;
+  }
+  function __destruct() {
+    echo "\nini akhir dari class mahasiswa {$this->name}.";
   }
 }
 
 
-$nisa = new mahasiswa('nisa', '2255201004', 'PBO', 'penyanyi');
+//class turunan organisasi
+class organisasi extends mahasiswa {
+  protected $NamaOrganisasi;
+    protected $TahunGabung;
+    function hima() {
+        echo "Name: " . $this->get_name();
+        echo "\n";
+        echo "Nim: " . $this->get_nim ();
+        echo "\n";
+        echo "Matkul: " . $this->get_matkul ();
+        echo "\n";
+        echo "Cita-cita: " . $this->get_cita_cita();
+        echo "\n";
+        echo "Organisasi : Find a Problem";
+        echo "\n";
+        echo "Tahun Gabung: " . $this->get_tahun();
+  }
+  function __construct($name, $nim, $matkul, $citacita, $NamaOrganisasi, $TahunGabung)
+    {
+        parent::__construct($name, $nim, $matkul, $citacita);
+        $this->NamaOrganisasi = $NamaOrganisasi;
+        $this->TahunGabung = $TahunGabung;
+    }
+    protected function get_namaorganisasi()
+    {
+        return $this->NamaOrganisasi;
+    }
+    protected function get_tahun()
+    {
+        return $this->TahunGabung;
+    }
+    function namatahun()
+    {
+        echo "\n";
+        echo "Nama Organisasi: " . $this->get_namaorganisasi();
+        echo "\n";
+        echo "Tahun Gabung: " . $this->get_tahun();
+    }
+}
+$nisa = new organisasi('Khairunnisa', '2255201004', 'PBO', 'penyanyi', 'find a problem','2001 tahun gajah', );
+$nisa->Hima();
 
-echo "Name: " . $nisa->get_name();
-echo "\n";
-echo "nim: " . $nisa->get_nim();
-echo "\n";
-echo "matkul: " . $nisa->get_matkul();
-echo "\n";
-echo "citacita: " . $nisa->get_cita_cita();
 ?>
- 
-</body>
-</html>

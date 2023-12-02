@@ -26,21 +26,60 @@ class mahasiswa
         return $this->nim;
     }
     
-    function get_mata_kuliah()
+    protected function get_mata_kuliah()
     {
         return $this->mata_kuliah;
     }
-    function get_citacita()
+    protected function get_citacita()
     {
         return $this->citacita;
     }
+    function __destruct()
+    {
+        echo "\nini akhir dari class mahasiswa {$this->name}";
+    }
+
 }
 
-$catur = new mahasiswa('catur', '2255201015', 'PBO', 'menjadi power ranger hitam');
-echo "name: " . $catur->get_name();
-echo "\n";
-echo "nim: " . $catur->get_nim();
-echo "\n";
-echo "mata kuliah: " . $catur->get_mata_kuliah();
-echo "\n";
-echo "cita cita: " . $catur->get_citacita();
+// class turunan organisasi
+class organisasi extends mahasiswa
+{
+    // properties
+    protected $organisasi;
+    protected $tahun;
+
+    // methods
+    function __construct($name, $nim, $mata_kuliah, $citacita, $organisasi, $tahun)
+    {
+        parent::__construct($name, $nim, $mata_kuliah, $citacita);
+        $this->organisasi = $organisasi;
+        $this->tahun = $tahun;
+    }
+    
+    protected function get_organisasi()
+    {
+        return $this->organisasi;
+    }
+    protected function get_tahun()
+    {
+        return $this->tahun;
+    }
+
+    function hima()
+    {
+        echo "Name: " . $this->get_name();
+        echo "\n";
+        echo "Nim: " . $this->get_nim();
+        echo "\n";
+        echo "Mata kuliah: " . $this->get_mata_kuliah();
+        echo "\n";
+        echo "Cita cita: " . $this->get_citacita();
+        echo "\n";
+        echo "Nama organisasi: " . $this->get_organisasi();
+        echo "\n";
+        echo "Tahun gabung: " . $this->get_tahun();
+
+    }
+}
+$catur = new organisasi('catur', '2255201015', 'PBO', 'menjadi power ranger hitam','hima','2069');
+$catur->hima();

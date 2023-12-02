@@ -24,22 +24,59 @@ class mahasiswa
         return $this->nim;
     }
 
-    function get_matkul()
+    protected function get_matkul()
     {
         return $this->matkul;
     }
-    function get_citacita()
+    protected function get_citacita()
     {
         return $this->citacita;
     }
+    function __destruct()
+    {
+        echo "\nini akhir dari class mahasiswa {$this->name}.";
+    }
 }
+class organisasi extends mahasiswa
+{
+    protected $NamaOrganisasi;
+    protected $TahunGabung;
+    function hima()
+    {
+        echo "Name: " . $this->get_name();
+        echo "\n";
+        echo "Nim: " . $this->get_nim();
+        echo "\n";
+        echo "Matkul: " . $this->get_matkul();
+        echo "\n";
+        echo "Cita-cita: " . $this->get_citacita();
+        echo "\n";
+        echo "Nama Organisasi: " . $this->get_namaorganisasi();
+        echo "\n";
+        echo "Tahun Gabung: " . $this->get_tahun();
+    }
+    function __construct($name, $nim, $matkul, $citacita, $NamaOrganisasi, $TahunGabung)
+    {
+        parent::__construct($name, $nim, $matkul, $citacita);
+        $this->NamaOrganisasi = $NamaOrganisasi;
+        $this->TahunGabung = $TahunGabung;
+    }
+    protected function get_namaorganisasi()
+    {
+        return $this->NamaOrganisasi;
+    }
+    protected function get_tahun()
+    {
+        return $this->TahunGabung;
+    }
+    function namatahun()
+    {
+        echo "\n";
+        echo "Nama Organisasi: " . $this->get_namaorganisasi();
+        echo "\n";
+        echo "Tahun Gabung: " . $this->get_tahun();
+    }
 
-$surya = new mahasiswa('gama', '2255201045', 'PBO', 'menjadi ultramen');
-
-echo "Name: " . $surya->get_name();
-echo "\n";
-echo "nim: " . $surya->get_nim();
-echo "\n";
-echo "matkul: " . $surya->get_matkul();
-echo "\n";
-echo "citacita: " . $surya->get_citacita();
+}
+$surya = new organisasi('gama', '2255201045', 'PBO', 'menjadi ultramen', 'himaaaatika', '2000 Tahun Sebelum Masehi');
+$surya->Hima();

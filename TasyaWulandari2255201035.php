@@ -1,50 +1,70 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-
-
 <?php
 class Mahasiswa {
   // Properties
-  public $name;
-  public $nim;
-  public $matkul;
+  private $name;
+  private $nim;
+  private $matkul;
+  private $citacita;
 
   // Methods
-  function set_name($name) {
-    $this->name = $name;
+  function __construct($name, $nim, $matkul, $citacita)
+  {
+      $this->name = $name;
+      $this->nim = $nim;
+      $this->matkul = $matkul;
+      $this->citacita = $citacita;
   }
   function get_name() {
     return $this->name;
   }
-  function set_nim($nim) {
-    $this->name = $name;
-  }
+
   function get_nim() {
     return $this->nim;
   }
-  function set_matkul($matkul) {
-    $this->matkul = $matkul;
-  }
-  function get_matkul() {
+ 
+  protected function get_matkul() {
     return $this->matkul;
+  }
+  protected function get_citacita()
+  {
+      return $this->citacita;
+  }
+  function __destruct() {
+    echo "<br> Ini akhir dari class mahasiswa  {$this->name}.";
   }
 }
 
-$tasya = new Mahasiswa();
-$nim = new Mahasiswa();
-$matkul = new Mahasiswa();
-$tasya->set_name('Tasya Wulandari');
-$nim->set_name('2255201035');
-$matkul->set_name('pbo');
+//class turunan organisasi
+class organisasi extends mahasiswa {
+  protected $namaorganisasi;
+  protected $tahun;
+  function hima(){
+    echo "Name: " . $this->get_name();
+    echo "<br>";
+    echo "Nim: " . $this->get_nim();
+    echo "<br>";
+    echo "Matkul: " . $this->get_matkul();
+    echo "<br>";
+    echo "Cita-cita: " . $this->get_citacita();
+    echo "<br>";
+    echo "Organisasi: " . $this->get_namaorganisasi();
+    echo "<br>";
+    echo "Tahun Gabung: " . $this->get_tahun();
+    }
+  function __construct($name,$nim,$matkul,$citacita,$namaorganisasi,$tahun){
+    parent:: __construct($name,$nim,$matkul,$citacita);
+    $this->namaorganisasi = $namaorganisasi;
+    $this->tahun = $tahun;
+  }
+  protected function get_namaorganisasi(){
+    return $this->namaorganisasi;
+  }
+  protected function get_tahun(){
+    return $this->tahun;
+  }
+}
+$tasya = new organisasi('Tasya Wulandari', '2255201035', 'PBO', 'Dokter','Hima','2022');
+$tasya->Hima();
 
-echo 'Nama : ' . $tasya->get_name();
-echo "<br>";
-echo 'nim: ' . $nim->get_name();
-echo "<br>";
-echo 'matkul: ' . $matkul->get_name();
 ?>
  
-</body>
-</html>

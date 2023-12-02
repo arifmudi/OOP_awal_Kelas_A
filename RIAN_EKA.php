@@ -24,24 +24,57 @@ class mahasiswa
         return $this->nim;
     }
     
-    function get_matkul()
+    protected function get_matkul()
     {
         return $this->matkul;
     }
-    function get_citacita()
+   protected function get_citacita()
     {
         return $this->citacita;
     }
+    function __destruct() {
+    echo "<br> ini akhir dari class mahasiswa {$this->name}.";
+  }
 }
 
-$rian = new mahasiswa('rian eka putra', '2255201043', 'PBO', 'menjadi proplayer');
+//class turunan organisasi
+class organisasi extends mahasiswa {
+     // properties
+    protected $organisasi;
+    protected $tahun;
 
-echo "Name: " . $rian->get_name();
-echo "\n";
-echo "nim: " . $rian->get_nim();
-echo "\n";
-echo "matkul: " . $rian->get_matkul();
-echo "\n";
-echo "citacita: " . $rian->get_citacita();
+    // methods
+    function __construct($name, $nim, $matkul, $citacita, $organisasi, $tahun)
+    {
+        parent::__construct($name, $nim, $matkul, $citacita);
+        $this->organisasi = $organisasi;
+        $this->tahun = $tahun;
+    }
+    
+    protected function get_organisasi()
+    {
+        return $this->organisasi;
+    }
+    protected function get_tahun()
+    {
+        return $this->tahun;
+    }
+    function hima() {
+        echo "name: " .$this->get_name();
+        echo "<br>";
+        echo "nim: " .$this->get_nim();
+        echo "<br>";
+        echo "matkul: " .$this->get_matkul();
+        echo "<br>";
+        echo "citacita: " .$this->get_citacita();
+       echo "<br>";
+        echo "Nama organisasi: " . $this->get_organisasi();
+        echo "<br>";
+        echo "Tahun gabung: " . $this->get_tahun();
+    }
+}
+$rian = new organisasi('Rian Eka Putra', '2255201043', 'PBO', 'Proplayer', 'hima', '1999');
+$rian->hima();
+
 ?>
  

@@ -5,39 +5,56 @@ class mahasiswa
     private $name;
     private $nim;
     private $mkul;
+    private $citacita;
     // Methods
-    function set_name($name)
+    function __construct($name, $nim, $mkul, $citacita)
     {
-        $this->name = $name;
+        $this->name = $name; 
+        $this->nim = $nim; 
+        $this->mkul = $mkul; 
+        $this->citacita = $citacita; 
     }
+
+    
     function get_name()
     {
         return $this->name;
     }
-    function set_nim($nim)
-    {
-        $this->nim = $nim;
-    }
+
     function get_nim()
     {
         return $this->nim;
     }
-    function set_mkul($mkul)
-    {
-        $this->mkul = $mkul;
-    }
-    function get_mkul()
+
+    protected function get_mkul()
     {
         return $this->mkul;
     }
+    protected function get_citacita()
+    {
+        return $this->citacita;
+    }
+     function __destruct()
+    {
+        echo "\n ini akhir dari class mahasiswa {$this->name}.";
+    }
 }
+class organisasi extends mahasiswa
+{
+    function hima()
+    {
+        echo "Name: " . $this->get_name();
+        echo "\n";
+        echo "Nim: " . $this->get_nim();
+        echo "\n";
+        echo "Matkul: " . $this->get_mkul();
+        echo "\n";
+        echo "Cita-cita: " . $this->get_citacita();
+        echo "\n";
+        echo "Organisasi : Hima";
 
-$yuda = new mahasiswa();
-$yuda->set_name('yuda');
-$yuda->set_nim('2255201039');
-$yuda->set_mkul('pbo');
-echo "Name: " . $yuda->get_name();
-echo "\n";
-echo "nim: " . $yuda->get_nim();
-echo "\n";
-echo "mkul: " . $yuda->get_mkul();
+    }
+}    
+
+$yuda = new organisasi('yuda', '2255201039', 'PBO', 'menjadi power ranger hijau');
+$yuda->Hima();
