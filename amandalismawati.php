@@ -14,41 +14,40 @@ class Mahasiswa {
  
 
   // Methods
-  function set_name($name)
-  { 
+  function __construct($name, $nim, $matkul, $citacita)
+  {
     $this->name = $name;
+    $this->nim = $nim;
+    $this->matkul = $matkul;
+    $this->citacita = $citacita;
   }
   function get_name()
   {
     return $this->name;
   }
-  function set_nim($nim)
-  {
-    $this->nim = $nim;
-  }
   function get_nim()
   {
     return $this->nim;
-  }
-  function set_matkul($matkul)
-  {
-    $this->matkul = $matkul;
   }
   function get_matkul()
   {
     return $this->matkul;
   }
+  function get_citacita;
+  {
+    return $this->citacita;
+  }
+
 }
 
-$amanda = new Mahasiswa ();
-$amanda->set_name('amanda');
-$amanda->set-nim('2255201013');
-$amanda->set_matkul('PBO');
-echo 'Name : ' . $amanda->get_name();
+$amanda = new Mahasiswa ('amanda', '2255201013', 'PBO', 'pengusaha');
+echo "Name : " . $amanda->get_name();
 echo "\n";
-echo 'nim: ' . $amanda->get_nim();
+echo "nim: " . $amanda->get_nim();
 echo "\n";
-echo 'matkul: ' . $amanda->get_matkul();
+echo "matkul: " . $amanda->get_matkul();
+echo "\n";
+echo "citacita: " . $amanda->get_citacita();
 
 ?>
  
