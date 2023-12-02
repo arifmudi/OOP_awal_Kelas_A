@@ -29,25 +29,37 @@ class Mahasiswa {
   {
     return $this->nim;
   }
-  function get_matkul()
+  protected function get_matkul()
   {
     return $this->matkul;
   }
-  function get_citacita;
+  protected function get_citacita;
   {
     return $this->citacita;
   }
+  function __destruct()
+  {
+    echo "\n ini akhir dari class mahasiswa {$this->name}.",
+  }
+}
+class organisasi extends mahasiswa
+{
+    function hima()
+    {
+      echo "Name: " . $this->get_name();
+      echo "\n";
+      echo "Nim: " . $this->get_nim();
+      echo "\n";
+      echo "Matkul: " . $this->get_matkul();
+      echo "\n";
+      echo "Cita-cita: " . $this->get_citacita();
+      echo "\n";
+      echo "Organisasi : Hima";
+    }
 
 }
-
-$amanda = new Mahasiswa ('amanda', '2255201013', 'PBO', 'pengusaha');
-echo "Name : " . $amanda->get_name();
-echo "\n";
-echo "nim: " . $amanda->get_nim();
-echo "\n";
-echo "matkul: " . $amanda->get_matkul();
-echo "\n";
-echo "citacita: " . $amanda->get_citacita();
+$amanda = new organisasi ('amanda', '2255201013', 'pbo', 'pengusaha' );
+$amanda-.Hima();
 
 ?>
  
